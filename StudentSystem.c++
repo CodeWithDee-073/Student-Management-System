@@ -18,33 +18,31 @@ public:
 void Student::add()
 {
   cout << "\nEnter Roll No., Name, Parent's Name, Class, Address:\n";
-  getline(cin, r); // Roll No
-  getline(cin, n); // Name
-  getline(cin, p); // Parent's Name
-  getline(cin, c); // Class
-  getline(cin, a); // Address
+  getline(cin, r); 
+  getline(cin, n); 
+  getline(cin, p); 
+  getline(cin, c); 
+  getline(cin, a); 
 
-  file.open("data.txt", ios::app);                                   // Open file in append mode
-  file << r << "|" << n << "|" << p << "|" << c << "|" << a << endl; // Write to file
+  file.open("data.txt", ios::app);                                   
+  file << r << "|" << n << "|" << p << "|" << c << "|" << a << endl; 
   file.close();
   cout << "Record added successfully!\n\n";
 }
 
 void Student::view()
 {
-  file.open("data.txt", ios::in); // Open file in read mode
+  file.open("data.txt", ios::in); 
   if (!file)
   {
     cout << "No records found.\n";
     return;
   }
 
-  // Reading each student's details and displaying them in one line
   while (getline(file, r, '|') && getline(file, n, '|') &&
          getline(file, p, '|') && getline(file, c, '|') &&
          getline(file, a))
   {
-    // Displaying the student details in one line
     cout << "Roll No: " << r << ", Name: " << n
          << ", Parent's Name: " << p
          << ", Class: " << c
@@ -87,7 +85,7 @@ void Student::search()
 void Student::update()
 {
   cout << "Enter Roll No. to update: ";
-  string sr, nn, nf, na; // search roll, new name, new parent's name, new address
+  string sr, nn, nf, na; 
   getline(cin, sr);
 
   fstream temp;
@@ -146,7 +144,7 @@ int main()
     cout << "Enter your choice: ";
 
     cin >> ch;
-    cin.ignore(); // To clear the input buffer after choosing an option
+    cin.ignore(); 
     switch (ch)
     {
     case '1':
